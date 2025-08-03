@@ -18,3 +18,8 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         )
         return user
     
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'phone_number', 'name', 'email', 'created_at')
+        read_only_fields = ('phone_number','id','created_at')
