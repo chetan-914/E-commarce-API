@@ -21,3 +21,19 @@ class ProductSerializer(serializers.ModelSerializer):
             'image_url',
             'is_available',
         )
+
+class AdminProductSerializer(serializers.ModelSerializer):
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
+    
+    class Meta:
+        model = Product
+        fields = (
+            'id',
+            'name',
+            'description',
+            'price',
+            'stock',
+            'category',
+            'image_url',
+            'is_available',
+        )
